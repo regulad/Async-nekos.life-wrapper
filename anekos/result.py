@@ -141,5 +141,5 @@ class EightBallResult(Result):
 
         self.text = data.pop("response")
         self.image_url = data.pop("url")
-        self.image_bytes = data.pop("bytes", None)
+        self.image_bytes = data.pop("image_bytes", None)
 
