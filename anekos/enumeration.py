@@ -39,7 +39,7 @@ class NSFWImageTags(AutoName):
     #lewd
     CUM_GIF = "cum"
     SPANK = auto()
-    SMALLBOOBS = auto()
+#    SMALLBOOBS = auto()
     RANDOM_HENTAI_GIF = "Random_hentai_gif"
     AVATAR = auto()
     BOOBS = auto()
