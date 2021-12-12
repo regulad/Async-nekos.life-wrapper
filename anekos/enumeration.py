@@ -59,19 +59,23 @@ class NSFWImageTags(AutoName):
     PUSSY_WANK_GIF = "pwankg"
     ERONEKO = "eron"
     EROKEMONOMINI = "erokemo"
-    
+
+
+class RealSFWImageTags(AutoName):
+    MEOW = auto()
+    EIGHTBALL = "8ball"
+    LIZARD = auto()
+    GOOSE = auto()
+    WOOF = auto()
+
 
 class SFWImageTags(AutoName):
     TICKLE = auto()
     NEKOGIF = "ngif"
-    MEOW = auto()
     POKE = auto()
     KISS = auto()
-    EIGHTBALL = "8ball"
-    LIZARD = auto()
     SLAP = auto()
     CUDDLE = auto()
-    GOOSE = auto()
     AVATAR = auto()
     FOX_GIRL = auto()
     HUG = auto()
@@ -81,7 +85,6 @@ class SFWImageTags(AutoName):
     KEMONOMIMI = auto()
     HOLO = auto()
     WALLPAPER = auto()
-    WOOF = auto()
     BAKA = auto()
     FEED = auto()
     NEKO = auto()

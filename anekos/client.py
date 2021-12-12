@@ -3,7 +3,7 @@ import random
 
 from . import http_client, enumeration, result
 
-Tag = typing.Union[str, enumeration.SFWImageTags, enumeration.NSFWImageTags]
+Tag = typing.Union[str, enumeration.SFWImageTags, enumeration.NSFWImageTags, enumeration.RealSFWImageTags]
 
 
 class NekosLifeClient:
@@ -34,7 +34,7 @@ class NekosLifeClient:
         -------
         anekos.result.ImageResult
         """
-        if not isinstance(tag, (str, enumeration.SFWImageTags, enumeration.NSFWImageTags)):
+        if not isinstance(tag, (str, enumeration.SFWImageTags, enumeration.NSFWImageTags, enumeration.RealSFWImageTags)):
             raise TypeError(f"{Tag} expected in `tag`")
 
         if type(get_bytes) is not bool:
@@ -52,47 +52,6 @@ class NekosLifeClient:
             data_response["bytes"] = image_bytes
 
         return result.ImageResult(data_response)
-
-    async def random_image(self, *, sfw: bool=True, nsfw: bool=False, get_bytes: bool=False):
-        """
-        -> Coroutine
-        Returns an random image.
-
-        Parameters
-        ----------
-        sfw : bool (optional, default is `True`)
-            anekos.SFWImageTags will be used.
-        nsfw : bool (optional, default is `False`)
-            anekos.NSFWImageTags will be used.
-        get_bytes : bool (optional)
-            Gets the bytes of an image.
-            You can get the bytes of the image by accessing the `bytes` attribute  of the returned object.
-
-        Returns
-        -------
-        anekos.result.ImageResult
-        """
-        if not sfw and not nsfw:
-            raise RuntimeError("it is necessary to pass 'sfw' or 'nsfw'")
-
-        if type(sfw) != type(nsfw) != bool:
-            raise TypeError("bool expected in `sfw` or `nsfw`")
-
-        if type(get_bytes) is not bool:
-            raise TypeError("bool expected in `get_bytes`")
-
-        tags = []
-        if sfw:
-            sfw_tags = enumeration.SFWImageTags.to_list()
-            tags.extend(sfw_tags)
-
-        if nsfw:
-            nsfw_tags = enumeration.NSFWImageTags.to_list()
-            tags.extend(nsfw_tags)
-
-        tag = random.choice(tags)
-
-        return await self.image(tag, get_bytes=get_bytes)
 
     async def random_fact_text(self):
         """
