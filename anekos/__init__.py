@@ -10,6 +10,6 @@ __license__ = "MIT"
 __version__ = "1.0.0"
 
 from .client import NekosLifeClient
-from .enumeration import NSFWImageTags, SFWImageTags
+from .enumeration import NSFWImageTags, SFWImageTags, RealSFWImageTags
 from . import result, errors
 from .http_client import Endpoint
