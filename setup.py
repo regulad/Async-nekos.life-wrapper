@@ -1,8 +1,8 @@
 from setuptools import setup
 
-setup(name="async-nekos.life-wrapper",
-      author="NiumXp",
-      url="https://github.com/Nekos-life/Async-nekos.life-wrapper",
+setup(name="anekos.py",
+      author="regulad",
+      url="https://github.com/regulad/anekos.py",
       version="1.0.0",
       packages=["anekos"],
       install_requires=["aiohttp>=3.6.2"],
